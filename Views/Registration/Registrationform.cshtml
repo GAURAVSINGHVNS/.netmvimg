@@ -1,0 +1,38 @@
+﻿@model mvcimg.Models.tblregistration
+@{
+    ViewBag.Title = "Registrationform";
+}
+
+<h2>Registrationform</h2>
+@using (Html.BeginForm("InsertUser", "Registration", FormMethod.Post, new {enctype="multipart/form-data"}))
+{
+    <table>
+        @Html.HiddenFor(x => x.rid)
+        @Html.HiddenFor(x => x.rimg)
+        <tr>
+            <td>Name :</td>
+            <td>@Html.TextBoxFor(m => m.rname)</td>
+        </tr>
+
+        <tr>
+            <td>Email Id :</td>
+            <td>@Html.TextBoxFor(m => m.remail)</td>
+        </tr>
+
+        <tr>
+            <td>Password :</td>
+            <td>@Html.TextBoxFor(m => m.rpassword)</td>
+        </tr>
+
+        <tr>
+            <td>image :</td>
+            <td><input type="file" name="file" /></td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td><input type="submit" value="@ViewBag.BT" /></td>
+        </tr>
+    </table>
+}
+

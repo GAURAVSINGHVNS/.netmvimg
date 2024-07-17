@@ -1,0 +1,31 @@
+﻿@model IEnumerable<mvcimg.Models.tblregistration>
+@{
+    ViewBag.Title = "ShowUser";
+}
+
+<h2>ShowUser</h2>
+<table style="background-color:mediumaquamarine;color:aliceblue;width:600px">
+    <tr style="background-color:maroon;height:30px">
+        <th>User Id</th>
+        <th>User Name</th>
+        <th>User Email</th>
+        <th>User Password</th>
+        <th>User image</th>
+        <td></td>
+        <td></td>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr style="height:30px">
+            <td>@item.rid</td>
+            <td>@item.rname</td>
+            <td>@item.remail</td>
+            <td>@item.rpassword</td>
+            <td><img src ="@Url.Content(item.rimg)" width="50px" height="40px" /></td>
+            <td>@Html.ActionLink("Delete", "DeleteUser", new { A = item.rid })</td>
+            <td>@Html.ActionLink("Edit", "RegistrationForm", new { A = item.rid })</td>
+        </tr>
+    }
+</table>
+
